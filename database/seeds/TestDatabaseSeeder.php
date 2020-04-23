@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Potassium\Database\Seeds\DroitsTableSeeder;
+use Potassium\Database\Seeds\UsersTableSeeder;
 
 class TestDatabaseSeeder extends Seeder
 {
@@ -20,7 +22,7 @@ class TestDatabaseSeeder extends Seeder
         // Seeders
         $this->call(UsersTableSeeder::class);
         $this->call(DroitsTableSeeder::class);
-        $this->call(LanguesTableSeeder::class);
+        // $this->call(LanguesTableSeeder::class);
 
         if(env('APP_ENV') != 'testing'){
             //enable foreign key check for this connection before running seeders

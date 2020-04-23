@@ -8,8 +8,6 @@ class TraductionsStore{
 			currentLocalizedLang: {},
 			frenchLang: {},
 		}
-
-		this.setLang('en');
 	}
 
 	/**

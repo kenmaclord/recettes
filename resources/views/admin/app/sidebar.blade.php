@@ -8,6 +8,8 @@
 	<ul>
 		<li><a href='/admin/'>Dashboard</a></li>
 
+		<li><a href='/admin/ingredients'>Ingredients</a></li>
+
 		{{-- @page --}}
 
 		@can('manage', [App\Entities\User::class, 'users'])

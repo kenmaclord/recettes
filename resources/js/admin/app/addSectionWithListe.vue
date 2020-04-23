@@ -1,6 +1,6 @@
 <template>
 	<div class="add-section-liste">
-		<a class="button is-primary is-outlined" @click="openAdd">
+<a class="button is-primary is-outlined" @click="openAdd">
 			<span class="icon">
 				<i class="fa fa-plus"></i>
 			</span>

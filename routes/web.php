@@ -8,8 +8,10 @@ Route::group([
     Route::get('/', 'DashboardController@index')->name('admin.dashboard');
 
     require __DIR__.'/partials/admin/users.php';
+    require __DIR__.'/partials/admin/ingredients.php';
 
-    // @PageRoutes
+
+	// @PageRoutes
 });
 
 

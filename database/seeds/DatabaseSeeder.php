@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Potassium\Database\Seeds\PackageDatabaseSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,6 +12,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        $this->call(PackageDatabaseSeeder::class);
     }
 }

@@ -37,6 +37,8 @@
 </template>
 
 <script>
+    import editInPlace      from './editInPlace.vue'
+
     export default {
 
         /*
@@ -100,6 +102,11 @@
             }
         },
 
+        components : {
+            editInPlace
+        },
+
+
         data(){
             return {
                 item: this.data,
@@ -158,9 +165,6 @@
 
 
 <style scoped lang='scss'>
-
-  // @import '../../../sass/core/variables';
-
   .item{
     display: flex;
     margin-bottom: 15px;

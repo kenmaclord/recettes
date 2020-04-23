@@ -12,5 +12,9 @@ Vue.component('traductions',{
 		return {
 			traductionsStore
 		}
-	}
+	},
+
+    created(){
+        this.traductionsStore.setLang('en');
+    }
 })

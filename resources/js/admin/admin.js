@@ -20,6 +20,8 @@ import traductions			from './pages/traductions/traductions'
 import users				from './pages/users/users'
 import user					from './pages/users/user'
 
+import ingredients 			from './pages/ingredients/ingredients'
+
 //@newJs
 
 const app = new Vue({

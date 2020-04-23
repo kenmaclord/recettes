@@ -16,7 +16,21 @@
                     :delete_icon="delete_icon"
                     :sortable="sortable"
                     :context="context">
-                        <div class="champ" :class="field" v-for="field in fields"><span>{{content(item, field)}}</span></div>
+                        <div class="champ"
+                            :class="field"
+                            v-for="field in fields"
+                            >
+
+                            <component
+                                v-if="field.editable.status"
+                                is="edit-in-place"
+                                :url="`/admin/ingredients/${item.slug}`"
+                                :text="item[field.name]"
+                                :field="field.name"
+                                >
+                            </component>
+                            <div v-else v-text="item[field.name]"></div>
+                        </div>
                 </item>
             </div>
         </transition>
@@ -40,6 +54,7 @@
 <script>
     import item             from './item.vue'
     import modal            from './modal.vue'
+    import editInPlace      from './editInPlace.vue'
     import modalData        from './modalData'
     import sortableMixin    from '../../utilities/sortable'
 
@@ -121,7 +136,11 @@
             }
         },
 
-        components : {modal, item},
+        components : {
+            modal,
+            item,
+            editInPlace
+        },
 
         mixins: [sortableMixin, modalData],
 
@@ -221,10 +240,17 @@
              * @return  String
              */
             content(item, field){
-                let segments = field.split('.')
+                let segments = field['name'].split('.')
 
                 if (segments.length == 1){
-                    return item[field]
+                    if (field.editable == undefined || field.editable.status == false){
+                        return item[field.name]
+                    }else{
+                        return `<edit-in-place
+                            url="${field.editable.url}+'/'+${item.slug}"
+                            text="${item[field.name]}"
+                            field="${field.name}"/>`
+                    }
                 }
 
                 if (segments.length == 2){
